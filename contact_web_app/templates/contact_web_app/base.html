@@ -1,0 +1,24 @@
+{% block static %}
+    {% load static %}
+{% endblock static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'contact_web_app/normalize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'contact_web_app/foundation.css' %}"/>
+    {% block styling %}
+    {% endblock styling %}
+</head>
+<body>
+    <header><h1>Telephone Directory</h1></header>
+    <div id="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <footer><h4>Copyrights@TeamYellow</h4></footer>
+    {% block javascript %}
+    {% endblock javascript %}
+</body>
+</html>

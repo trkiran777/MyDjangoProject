@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modify Contact</title>
+    <link rel="stylesheet" href="{% static 'contact_web_app/normalize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'contact_web_app/foundation.css' %}"/>
+    <link rel="stylesheet" href="{% static 'contact_web_app/modify_contact.css' %}"/>
+    <script src="{% static 'contact_web_app/modernizr.js' %}"></script>
+</head>
+<body>
+    <header>
+        <h1>Telephone Directory</h1>
+    </header>
+    <div>
+        <h1>Modify Contact</h1>
+        <form id="myForm" action="{% url 'contact_web_app.views.modify_contact' %}" method="post">{% csrf_token %}
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="ip1" class="right inline">Name:</label>
+                </div>
+                <div class="small-7 columns">
+                    <input id="ip1" type="text" name="name" value="{{ name }}"/>
+                </div>
+                <div class="small-2 columns"></div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="ip2" class="right inline">Phone No:</label>
+                </div>
+                <div class="small-7 columns">
+                    <input id="ip2" type="text" name="phone_no" value="{{ phone_no }}" readonly/>
+                </div>
+                <div class="small-2 columns"></div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="ip3" class="right inline">Email:</label>
+                </div>
+                <div class="small-7 columns">
+                    <input id="ip3" type="text" name="email" value="{{ email }}"/>
+                </div>
+                <div class="small-2 columns"></div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="ip4" class="right inline">Street:</label>
+                </div>
+                <div class="small-7 columns">
+                    <input id="ip4" type="text" name="street" value="{{ street }}"/>
+                </div>
+                <div class="small-2 columns"></div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="ip5" class="right inline">City:</label>
+                </div>
+                <div class="small-7 columns">
+                    <input id="ip5" type="text" name="city" value="{{ city }}"/>
+                </div>
+                <div class="small-2 columns"></div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="ip6" class="right inline">State:</label>
+                </div>
+                <div class="small-7 columns">
+                    <input id="ip6" type="text" name="state" value="{{ state }}"/>
+                </div>
+                <div class="small-2 columns"></div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns">
+                    <label for="ip7" class="right inline">Pin-code:</label>
+                </div>
+                <div class="small-7 columns">
+                    <input id="ip7" type="number" name="pin_code" value="{{ pin_code }}"/>
+                </div>
+                <div class="small-2 columns"></div>
+            </div>
+            <p><input id="btn1" class="button small" type="button" value="Submit"/>
+                <input id="btn2" class="button small" type="reset" value="Reset"/>
+            </p>
+            <p id="message" style="color:red;"></p>
+        </form>
+        <a class="button small" href="/">Home</a>
+    </div>
+    <footer><h4>Copyrights@TeamYellow</h4></footer>
+    <script src="{% static 'contact_web_app/jquery.js' %}"></script>
+    <script src="{% static 'contact_web_app/fastclick.js' %}"></script>
+    <script src="{% static 'contact_web_app/foundation.min.js' %}"></script>
+    <script src="{% static 'contact_web_app/modify_contact.js' %}"></script>
+</body>
+</html>

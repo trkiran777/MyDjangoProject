@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Contacts by Field</title>
+    <link rel="stylesheet" href="{% static 'contact_web_app/normalize.css' %}"/>
+    <link rel="stylesheet" href="{% static 'contact_web_app/foundation.css' %}"/>
+    <link rel="stylesheet" href="{% static 'contact_web_app/get_contacts_by_field.css' %}"/>
+    <script src="{% static 'contact_web_app/modernizr.js' %}"></script>
+</head>
+<body>
+    <header>
+        <h1>Telephone Directory</h1>
+    </header>
+    <div id="main_div">
+        <h1>Get contacts by Field</h1>
+        <form id="myForm" action="{% url 'contact_web_app.views.get_contacts_by_field' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="row collapse prefix-radius">
+                    <div class="small-3 columns">
+                        <label for="ip1" class="right inline">Enter string:</label>
+                    </div>
+                    <div class="small-6 columns">
+                        <input id="ip1" type="text" name="string"/>
+                    </div>
+                    <div class="small-3 columns"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 columns"></div>
+                <div class="small-6 columns">
+                    <select id="field" name="field">
+                        <option value="select a field" selected="selected">Select Field</option>
+                        <option value="name">NAME</option>
+                        <option value="phone_no">PHONE_NO</option>
+                        <option value="email">EMAIL</option>
+                        <option value="street">STREET</option>
+                        <option value="city">CITY</option>
+                        <option value="state">STATE</option>
+                        <option value="pin_code">PIN_CODE</option>
+                    </select>
+                </div>
+                <div class="small-3 columns"></div>
+            </div>
+            <input id="btn1" class="button small" type="button" value="Submit"/>
+            <p id="message" style="color:red;"></p>
+            {% if message %}
+                <p style="color:red;">{{ message }}</p>
+            {% endif %}
+        </form>
+        <a class="button small"  href="/">Home</a>
+    </div>
+    <footer><h4>Copyrights@TeamYellow</h4></footer>
+    <script src="{% static 'contact_web_app/jquery.js' %}"></script>
+    <script src="{% static 'contact_web_app/fastclick.js' %}"></script>
+    <script src="{% static 'contact_web_app/foundation.min.js' %}"></script>
+    <script src="{% static 'contact_web_app/get_contacts_by_field.js' %}"></script>
+</body>
+</html>
