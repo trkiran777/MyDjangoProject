@@ -119,8 +119,7 @@ def get_provider(request):
 
 
 def get_contacts_by_provider_form(request):
-    message = ''
-    return render(request, "contact_web_app/get_contacts_by_provider.html", {'message': message})
+    return render(request, "contact_web_app/get_contacts_by_provider.html")
 
 
 def get_contacts_by_provider(request):
@@ -136,12 +135,11 @@ def get_contacts_by_provider(request):
             return render(request, "contact_web_app/view_contacts.html", {'contacts': li})
         else:
             message = 'There are no contacts with this provider!'
-            return render(request, "contact_web_app/get_contacts_by_provider.html", {'message': message})
+            return render(request, "contact_web_app/view_contacts.html", {'message': message})
 
 
 def get_contacts_by_field_form(request):
-    message = ''
-    return render(request, "contact_web_app/get_contacts_by_field.html", {'message': message})
+    return render(request, "contact_web_app/get_contacts_by_field.html")
 
 
 def get_contacts_by_field(request):
@@ -166,4 +164,4 @@ def get_contacts_by_field(request):
             return render(request, 'contact_web_app/view_contacts.html', {'contacts': subset})
         else:
             message = 'There are no matching contacts!'
-            return render(request, "contact_web_app/get_contacts_by_field.html", {'message': message})
+            return render(request, "contact_web_app/view_contacts.html", {'message': message})
