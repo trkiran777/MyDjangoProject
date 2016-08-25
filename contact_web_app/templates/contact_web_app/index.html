@@ -1,8 +1,11 @@
 {% extends "contact_web_app/base.html" %}
 
-{% block static %}
-    {% load static %}
-{% endblock static %}
+{% load static %}
+
+{% block title %}
+    Contacts Home
+{% endblock title %}
+
 {% block styling %}
     <link rel="stylesheet" href="{% static 'contact_web_app/index.css' %}"/>
 {% endblock styling %}

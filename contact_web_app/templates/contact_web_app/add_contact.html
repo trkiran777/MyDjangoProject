@@ -1,21 +1,20 @@
+{% extends "contact_web_app/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Contact</title>
-    <link rel="stylesheet" href="{% static 'contact_web_app/normalize.css' %}"/>
-    <link rel="stylesheet" href="{% static 'contact_web_app/foundation.css' %}"/>
+
+{% block title %}
+    Add contact
+{% endblock title %}
+
+{% block styling %}
     <link rel="stylesheet" href="{% static 'contact_web_app/add_contact.css' %}"/>
-</head>
-<body>
-    <header>
-        <h1>Telephone Directory</h1>
-    </header>
-    <div>
-        <h1>Add Contact</h1>
-        <form id="myForm" action="{% url 'contact_web_app.views.add_contact' %}" method="post">{% csrf_token %}
+{% endblock styling %}
+
+{% block content %}
+    <h1>Add Contact</h1>
+    <div class="row">
+        <form id="myForm" class="small-11 small-centered medium-7 medium-centered large-7 large-centered columns"
+              action="{% url 'contact_web_app.views.add_contact' %}" method="post">{% csrf_token %}
             <div class="row">
                 <div class="small-3 columns">
                     <label for="ip1" class="right inline">Name:</label>
@@ -84,13 +83,16 @@
             </p>
             <p id="message" style="color:red;"></p>
         </form>
+    </div>
+    <div id="btn3" class="row small-3 small-centered columns">
         <a class="button small" href="/">Home</a>
     </div>
-    <footer><h4>Copyrights@TeamYellow</h4></footer>
+{% endblock content %}
+
+{% block javascript %}
     <script src="{% static 'contact_web_app/modernizr.js' %}"></script>
     <script src="{% static 'contact_web_app/jquery.js' %}"></script>
     <script src="{% static 'contact_web_app/fastclick.js' %}"></script>
     <script src="{% static 'contact_web_app/foundation.min.js' %}"></script>
     <script src="{% static 'contact_web_app/add_contact.js' %}"></script>
-</body>
-</html>
+{% endblock javascript %}

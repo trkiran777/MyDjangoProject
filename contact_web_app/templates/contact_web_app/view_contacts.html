@@ -1,24 +1,23 @@
+{% extends "contact_web_app/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Contacts</title>
-    <link rel="stylesheet" href="{% static 'contact_web_app/normalize.css' %}"/>
-    <link rel="stylesheet" href="{% static 'contact_web_app/foundation.css' %}"/>
+
+{% block title %}
+    View Contacts
+{% endblock title %}
+
+{% block styling %}
     <link rel="stylesheet" href="{% static 'contact_web_app/view_contacts.css' %}"/>
-</head>
-<body>
-    <header>
-        <h1>Telephone Directory</h1>
-    </header>
-    <div>
-        <h1>List of Contacts</h1>
-        {% if message %}
-            <p style="color:red;">{{ message }}</p>
-        {% else %}
-            <table id="width" border="2">
+{% endblock styling %}
+
+{% block content %}
+    <h1>List of Contacts</h1>
+    {% if message %}
+        <p style="color:red;">{{ message }}</p>
+    {% else %}
+        <div class="row">
+            <table id="width" class="small-12 small-centered medium-8 medium-centered large-10 large-centered columns"
+                   border="2">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -44,9 +43,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-        {% endif %}
-        <a class="button small"  href="/">Home</a>
-    </div>
-    <footer><h4>Copyrights@TeamYellow</h4></footer>
-</body>
-</html>
+        </div>
+    {% endif %}
+    <a class="button small"  href="/">Home</a>
+{% endblock content %}

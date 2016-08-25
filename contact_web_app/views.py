@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from models import Contact, Provider
+from django.core.mail import send_mail
 
 
 def contacts_home(request):

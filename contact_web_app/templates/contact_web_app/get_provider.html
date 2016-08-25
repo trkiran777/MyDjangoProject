@@ -1,22 +1,20 @@
+{% extends "contact_web_app/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get Provider</title>
-    <link rel="stylesheet" href="{% static 'contact_web_app/normalize.css' %}"/>
-    <link rel="stylesheet" href="{% static 'contact_web_app/foundation.css' %}"/>
+
+{% block title %}
+    Get provider
+{% endblock title %}
+
+{% block styling %}
     <link rel="stylesheet" href="{% static 'contact_web_app/get_provider.css' %}"/>
-    <script src="{% static 'contact_web_app/modernizr.js' %}"></script>
-</head>
-<body>
-    <header>
-        <h1>Telephone Directory</h1>
-    </header>
-    <div id="main_div">
-        <h1>Get Provider</h1>
-        <form id="myForm" action="{% url 'contact_web_app.views.get_provider' %}" method="post">{% csrf_token %}
+{% endblock styling %}
+
+{% block content %}
+    <h1>Get Provider</h1>
+    <div class="row">
+        <form id="myForm" class="small-11 small-centered medium-6 medium-centered large-6 large-centered columns"
+              action="{% url 'contact_web_app.views.get_provider' %}" method="post">{% csrf_token %}
             <div class="row">
                 <div class="small-3 columns">
                     <label for="phone" class="right inline">Phone No:</label>
@@ -29,12 +27,14 @@
             </div>
             <p><input id="btn1" class="button small" type="button" value="Submit"/></p>
         </form>
-        <a class="button small" href="/">Home</a>
     </div>
-    <footer><h4>Copyrights@TeamYellow</h4></footer>
+    <a class="button small" href="/">Home</a>
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static 'contact_web_app/modernizr.js' %}"></script>
     <script src="{% static 'contact_web_app/jquery.js' %}"></script>
     <script src="{% static 'contact_web_app/fastclick.js' %}"></script>
     <script src="{% static 'contact_web_app/foundation.min.js' %}"></script>
     <script src="{% static 'contact_web_app/get_provider.js' %}"></script>
-</body>
-</html>
+{% endblock javascript %}
